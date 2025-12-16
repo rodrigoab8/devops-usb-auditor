@@ -8,7 +8,7 @@ Detectar automaticamente a conexão de dispositivos (USB,controles, perifericos)
 -Linux
 -Bash
 -Git
--udev(futuro
+-udev(futuro)
 -docker(futuro)
 
 #### STATUS
