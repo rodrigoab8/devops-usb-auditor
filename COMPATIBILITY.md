@@ -1,6 +1,6 @@
 # USB Auditor - Compatibilidade de Sistemas Operacioonais
 
-## Sistemas suportados(Proposta inicial)
+## Sistemas suportados (Proposta inicial)
 - Linux: Suporte completo (foco principal)
 - Windows: Suporte parcial (dependente de permissões)
 - macOS: Suporte parcial (restrições de segurança)
