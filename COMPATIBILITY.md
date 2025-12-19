@@ -5,7 +5,7 @@
 - Windows: Suporte parcial (dependente de permissões)
 - macOS: Suporte parcial (restrições de segurança)
 
-##Observações
+## Observações
 - Linguagem princial: Python
 - Dependências devem ser multiplataforma
 - Decisão sujeita a validação técnica
