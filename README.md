@@ -15,4 +15,4 @@ rastreabilidade e observabilidade.
 - docker;(Futuro)
 
 #### STATUS
-*Em Desenvolvimento..
+*Em Desenvolvimento...
