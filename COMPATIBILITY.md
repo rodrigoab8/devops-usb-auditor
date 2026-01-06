@@ -9,9 +9,3 @@
 - Linguagem Princial: Python;
 - Dependências devem ser multiplataforma;
 - Decisão sujeita a validação técnica.
-
-## Observações:
-- Linguagem princial: Python;
-- Dependências devem ser multiplataforma;
-- Decisão sujeita a validação técnica.
- 
