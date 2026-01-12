@@ -54,5 +54,5 @@ Este projeto foi criado com o objetivo de aprendizado prático e construção de
 ---
 
 ## Autor
-**Rodrigo**  
+**Rodrigo Araújo Bezerra**  
 Estudante e entusiasta de DevOps, Cloud e Segurança da Informação.
