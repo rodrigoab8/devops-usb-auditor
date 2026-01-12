@@ -1,78 +1,58 @@
-<h1 style="color:#1f6feb;">🛡️ Security Agent Platform</h1>
+# Security Agent Platform 
 
-<p><strong>Status:</strong> Em desenvolvimento 🚧</p>
-<p><strong>Categoria:</strong> DevOps • Segurança • Automação • Cloud-Ready</p>
+## Visão Geral
+O **Security Agent Platform** é um agente de segurança multiplataforma voltado para auditoria de dispositivos USB em ambientes Linux.  
+O objetivo é detectar, registrar e auditar conexões de dispositivos USB de forma automatizada, segura e extensível.
 
----
-
-<h2 style="color:#1f6feb;">🎯 Visão do Projeto</h2>
-
-O <strong>Security Agent Platform</strong> é uma iniciativa prática para construir um <strong>agente de segurança multiplataforma</strong>, focado em auditoria de dispositivos USB, coleta de eventos e integração com pipelines DevOps modernos.
-
-Este projeto nasce simples — um agente local — mas com uma <strong>visão clara de evolução</strong> para ambientes corporativos, cloud (AWS / Azure) e orquestração via Kubernetes.
-
-> Think small. Build right. Scale hard.
+Este projeto faz parte da minha transição para a área de **DevOps / Cloud / Segurança**, com foco em automação, observabilidade e boas práticas de engenharia.
 
 ---
 
-<h2 style="color:#1f6feb;">🧠 Problema que Resolve</h2>
-
-Em ambientes corporativos e regulados (bancos, indústrias, datacenters), dispositivos USB representam um risco real:
-
-- Vazamento de dados  
-- Execução de malware  
-- Falta de rastreabilidade  
-- Auditorias manuais e falhas  
-
-O Security Agent Platform propõe um caminho técnico para:
-
-✔ Monitorar  
-✔ Auditar  
-✔ Registrar  
-✔ Automatizar  
+## Objetivo do Projeto
+- Monitorar conexões e desconexões de dispositivos USB
+- Registrar eventos para auditoria e compliance
+- Servir como base para automações de segurança
+- Evoluir para ambientes containerizados e cloud-native
 
 ---
 
-<h2 style="color:#1f6feb;">🛠️ Arquitetura Conceitual</h2>
+## Arquitetura (Visão Inicial)
+- Script de auditoria local (Linux)
+- Coleta de eventos do sistema
+- Geração de logs estruturados
+- Base preparada para integração com pipelines CI/CD
 
-💻 **Agente Local**
-- Script de auditoria USB (Linux inicialmente)
-- Execução automática ou manual
-- Logs estruturados
+---
 
-📦 **Camada DevOps (futuro próximo)**
+## Tecnologias Utilizadas
+- Bash (Shell Script)
+- Linux
+- Git & GitHub
+- Markdown (documentação)
+
+---
+
+## Status do Projeto
+ **Em desenvolvimento (fase inicial)**  
+O foco atual está na construção do agente local e na estruturação do projeto.
+
+---
+
+## Próximos Passos Planejados
+- Implementação do agente de auditoria USB
+- Organização de logs
+- Criação de pipeline CI
 - Containerização com Docker
-- Deploy em Kubernetes
-- CI/CD com GitHub Actions
-
-☁️ **Cloud & Observabilidade**
-- Envio de logs para Cloud (AWS / Azure)
-- Integração com SIEM / Logging
-- Métricas e alertas
+- Deploy em ambiente cloud (AWS / Azure)
+- Evolução para Kubernetes
 
 ---
 
-<h2 style="color:#1f6feb;">⚙️ Tecnologias Envolvidas</h2>
-
-- 🐧 Linux
-- 🧠 Shell Script / Bash
-- 🐳 Docker (planejado)
-- ☸️ Kubernetes (planejado)
-- 🔄 CI/CD (GitHub Actions)
-- ☁️ AWS & Azure (roadmap)
-- 📜 Git & GitHub
+## Motivação
+Este projeto foi criado com o objetivo de aprendizado prático e construção de portfólio técnico, simulando cenários reais encontrados em ambientes corporativos de infraestrutura e segurança.
 
 ---
 
-<h2 style="color:#1f6feb;">📁 Estrutura Inicial do Projeto</h2>
-
-```bash
-security-agent-platform/
-├── README.md
-├── COMPATIBILITY.md
-├── scripts/
-│   └── agent.sh
-├── docs/
-│   └── arquitetura.md
-└── .github/
-    └── workflows/
+## Autor
+**Rodrigo**  
+Estudante e entusiasta de DevOps, Cloud e Segurança da Informação.
