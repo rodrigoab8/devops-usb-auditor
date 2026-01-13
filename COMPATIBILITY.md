@@ -1,78 +1,117 @@
-<h1 style="color:#1f6feb;">🛡️ Security Agent Platform</h1>
+Security Agent Platform — Compatibility & Support
 
-<p><strong>Status:</strong> Em desenvolvimento 🚧</p>
-<p><strong>Categoria:</strong> DevOps • Segurança • Automação • Cloud-Ready</p>
+Status: Active Development
+Categoria: Segurança, Auditoria, DevOps, Infraestrutura
 
----
+Objetivo
 
-<h2 style="color:#1f6feb;">🎯 Visão do Projeto</h2>
+O Security Agent Platform é um agente de segurança voltado para auditoria de dispositivos USB em sistemas Linux, com foco em ambientes corporativos, servidores e estações de trabalho.
 
-O <strong>Security Agent Platform</strong> é uma iniciativa prática para construir um <strong>agente de segurança multiplataforma</strong>, focado em auditoria de dispositivos USB, coleta de eventos e integração com pipelines DevOps modernos.
+O projeto implementa um agente local que monitora eventos do kernel em tempo real e registra atividades de dispositivos USB para fins de auditoria e rastreabilidade.
 
-Este projeto nasce simples — um agente local — mas com uma <strong>visão clara de evolução</strong> para ambientes corporativos, cloud (AWS / Azure) e orquestração via Kubernetes.
+Escopo Atual
 
-> Think small. Build right. Scale hard.
+O projeto atualmente implementa um agente USB funcional com:
 
----
+Monitoramento em tempo real via logs do kernel (dmesg)
 
-<h2 style="color:#1f6feb;">🧠 Problema que Resolve</h2>
+Detecção de conexão e desconexão de dispositivos USB
 
-Em ambientes corporativos e regulados (bancos, indústrias, datacenters), dispositivos USB representam um risco real:
+Registro estruturado de eventos em arquivo de log
 
-- Vazamento de dados  
-- Execução de malware  
-- Falta de rastreabilidade  
-- Auditorias manuais e falhas  
+Execução manual ou como serviço do sistema
 
-O Security Agent Platform propõe um caminho técnico para:
+Sistemas Operacionais Suportados
+Sistema Operacional	Status
+Ubuntu 20.04+	Suportado
+Debian 11+	Suportado
+WSL (Ubuntu)	Suporte parcial
+RedHat / CentOS	Planejado
+Windows (nativo)	Não suportado
+macOS	Planejado
+Dependências
 
-✔ Monitorar  
-✔ Auditar  
-✔ Registrar  
-✔ Automatizar  
+Requisitos mínimos:
 
----
+Kernel Linux 5.x ou superior
 
-<h2 style="color:#1f6feb;">🛠️ Arquitetura Conceitual</h2>
+Bash
 
-💻 **Agente Local**
-- Script de auditoria USB (Linux inicialmente)
-- Execução automática ou manual
-- Logs estruturados
+systemd
 
-📦 **Camada DevOps (futuro próximo)**
-- Containerização com Docker
-- Deploy em Kubernetes
-- CI/CD com GitHub Actions
+dmesg
 
-☁️ **Cloud & Observabilidade**
-- Envio de logs para Cloud (AWS / Azure)
-- Integração com SIEM / Logging
-- Métricas e alertas
+Permissão de leitura dos logs do kernel
 
----
+Pacotes necessários:
 
-<h2 style="color:#1f6feb;">⚙️ Tecnologias Envolvidas</h2>
+sudo apt install -y util-linux coreutils grep
 
-- 🐧 Linux
-- 🧠 Shell Script / Bash
-- 🐳 Docker (planejado)
-- ☸️ Kubernetes (planejado)
-- 🔄 CI/CD (GitHub Actions)
-- ☁️ AWS & Azure (roadmap)
-- 📜 Git & GitHub
+Componentes Implementados
+USB Agent
 
----
+Localização:
 
-<h2 style="color:#1f6feb;">📁 Estrutura Inicial do Projeto</h2>
+apps/usb-agent/agent.sh
 
-```bash
-security-agent-platform/
-├── README.md
-├── COMPATIBILITY.md
-├── scripts/
-│   └── agent.sh
+
+Funções:
+
+Leitura contínua dos eventos do kernel via dmesg -w
+
+Filtro de eventos USB
+
+Registro de logs em:
+
+logs/usb-agent.log
+
+Estrutura Atual do Projeto
+devops-usb-auditor/
+├── apps/
+│   └── usb-agent/
+│       ├── agent.sh
+│       └── LOG_FILE
+├── logs/
+│   └── usb-agent.log
+├── docker/
+├── kubernetes/
 ├── docs/
-│   └── arquitetura.md
-└── .github/
-    └── workflows/
+├── scripts/
+├── README.md
+└── COMPATIBILITY.md
+
+Limitações Conhecidas
+
+Suporte apenas para Linux
+
+Requer privilégios elevados para leitura dos eventos do kernel
+
+Dependência direta do dmesg
+
+Roadmap Técnico
+
+Fase 1 — Agente Local (Atual)
+
+Monitoramento USB
+
+Logs locais
+
+Execução como serviço systemd
+
+Fase 2 — DevOps
+
+Containerização com Docker
+
+Pipeline CI/CD
+
+Build automatizado
+
+Fase 3 — Cloud
+
+Envio de logs para AWS e Azure
+
+Observabilidade e alertas
+
+Observações
+
+Este projeto tem foco educacional e prático, simulando um cenário real de auditoria e segurança em ambientes corporativos.
