@@ -105,9 +105,9 @@ Plataformas planejadas para futuras versões:
 
 Este projeto foi desenvolvido com foco em:
 
--Ambientes corporativos Linux
+- Ambientes corporativos Linux
 
--Segurança de endpoints
+- Segurança de endpoints
 
 - Auditoria e compliance
 
