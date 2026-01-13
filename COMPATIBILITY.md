@@ -1,117 +1,116 @@
-Security Agent Platform — Compatibility & Support
+# Security Agent Platform — Compatibilidade
+## Visão Geral
 
-Status: Active Development
-Categoria: Segurança, Auditoria, DevOps, Infraestrutura
+Este documento descreve os ambientes suportados atualmente pelo Security Agent Platform e os requisitos necessários para execução do agente de auditoria USB.
 
-Objetivo
+O projeto foi desenvolvido inicialmente para ambientes Linux, com foco em servidores, estações corporativas e ambientes de infraestrutura.
 
-O Security Agent Platform é um agente de segurança voltado para auditoria de dispositivos USB em sistemas Linux, com foco em ambientes corporativos, servidores e estações de trabalho.
+# Sistemas Operacionais Suportados
 
-O projeto implementa um agente local que monitora eventos do kernel em tempo real e registra atividades de dispositivos USB para fins de auditoria e rastreabilidade.
+### Linux (Suportado)
 
-Escopo Atual
+Distribuições testadas:
 
-O projeto atualmente implementa um agente USB funcional com:
+- Ubuntu 20.04+
 
-Monitoramento em tempo real via logs do kernel (dmesg)
+- Ubuntu 22.04+
 
-Detecção de conexão e desconexão de dispositivos USB
+- Debian 11+
 
-Registro estruturado de eventos em arquivo de log
-
-Execução manual ou como serviço do sistema
-
-Sistemas Operacionais Suportados
-Sistema Operacional	Status
-Ubuntu 20.04+	Suportado
-Debian 11+	Suportado
-WSL (Ubuntu)	Suporte parcial
-RedHat / CentOS	Planejado
-Windows (nativo)	Não suportado
-macOS	Planejado
-Dependências
+- Debian 12+
 
 Requisitos mínimos:
 
-Kernel Linux 5.x ou superior
+- Kernel Linux com suporte a USB
 
-Bash
+- Bash 4+
 
-systemd
+- systemd (para execução como serviço)
 
-dmesg
+- Permissão de acesso ao dmesg
 
-Permissão de leitura dos logs do kernel
+# Ambientes Não Suportados (Atualmente)
 
-Pacotes necessários:
+### Windows (Nativo)
 
-sudo apt install -y util-linux coreutils grep
+O agente não roda nativamente no Windows, pois depende de:
 
-Componentes Implementados
-USB Agent
+- dmesg
 
-Localização:
+- eventos do kernel Linux
 
-apps/usb-agent/agent.sh
+- estrutura de dispositivos /sys
 
+## macOS
 
-Funções:
+Não suportado no momento. O macOS possui um modelo diferente de gerenciamento de dispositivos USB.
 
-Leitura contínua dos eventos do kernel via dmesg -w
+## Windows com WSL (Suporte Parcial)
 
-Filtro de eventos USB
+O projeto pode ser executado em ambientes Windows utilizando:
 
-Registro de logs em:
+- WSL2 (Windows Subsystem for Linux)
 
-logs/usb-agent.log
+- Ubuntu dentro do WSL
 
-Estrutura Atual do Projeto
-devops-usb-auditor/
-├── apps/
-│   └── usb-agent/
-│       ├── agent.sh
-│       └── LOG_FILE
-├── logs/
-│   └── usb-agent.log
-├── docker/
-├── kubernetes/
-├── docs/
-├── scripts/
-├── README.md
-└── COMPATIBILITY.md
+Limitações conhecidas:
 
-Limitações Conhecidas
+- Nem todos os eventos USB do host Windows são expostos ao WSL
 
-Suporte apenas para Linux
+- A detecção depende da integração USB do WSL com o host
 
-Requer privilégios elevados para leitura dos eventos do kernel
+Uso recomendado apenas para testes e desenvolvimento.
 
-Dependência direta do dmesg
+# Requisitos de Execução
 
-Roadmap Técnico
+Para rodar o agente corretamente, o sistema deve possuir:
 
-Fase 1 — Agente Local (Atual)
+- Acesso ao comando dmesg
 
-Monitoramento USB
+- Permissão de leitura dos logs do kernel
 
-Logs locais
+- Execução com privilégios elevados (root ou sudo)
 
-Execução como serviço systemd
+- Sistema baseado em Linux com suporte a dispositivos USB
 
-Fase 2 — DevOps
+# Execução como Serviço
 
-Containerização com Docker
+O agente pode ser executado como:
 
-Pipeline CI/CD
+- Script manual
 
-Build automatizado
+- Serviço do systemd (modo recomendado para produção)
 
-Fase 3 — Cloud
+A execução como serviço garante:
 
-Envio de logs para AWS e Azure
+- Inicialização automática no boot
 
-Observabilidade e alertas
+- Execução contínua
 
-Observações
+- Monitoramento pelo systemd
 
-Este projeto tem foco educacional e prático, simulando um cenário real de auditoria e segurança em ambientes corporativos.
+# Roadmap de Compatibilidade
+
+Plataformas planejadas para futuras versões:
+
+- Container Docker (Linux)
+
+- Kubernetes (DaemonSet)
+
+- Integração com cloud (AWS / Azure)
+
+- Integração com SIEM e observabilidade
+
+## Observações Importantes
+
+Este projeto foi desenvolvido com foco em:
+
+-Ambientes corporativos Linux
+
+-Segurança de endpoints
+
+- Auditoria e compliance
+
+- Automação de infraestrutura
+
+Não é um software de usuário final. É um agente de infraestrutura.
